@@ -1,0 +1,45 @@
+
+form {
+    border-radius: 5px;
+    border: 2px solid #fff;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.label-normal, button, .input-normal {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+
+.button-submit { 
+    margin-top: 25px;
+    background: #bdecb6;
+    border-radius: 25px;
+    background-color: #212529; 
+    color: #fff; 
+    padding: 10px;
+    border: 0px; 
+} 
+
+.form-one-container { 
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem; 
+    flex-direction: column;
+}
+
+.div-radio { 
+    margin-top: 15px;
+}
+
+.label-radio { 
+    margin-left: 10px;
+}
+
+.radios-container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

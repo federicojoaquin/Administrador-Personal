@@ -1,0 +1,9 @@
+.cards-container { 
+    height: 80vh;
+}
+
+@media screen and (min-width: 200px) and (max-width: 669px) {
+    .cards-container {
+        height: 968px; 
+    }
+}
