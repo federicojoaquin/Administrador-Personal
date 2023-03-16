@@ -3,7 +3,7 @@ import '../stylesheets/Search.css'
 
 function Search() {
   return (
-    <div className='row justify-content-end'>
+    <>
       <div className='col-md-3 my-3'>
         <div class="dropdown d-flex">
           <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,7 +25,7 @@ function Search() {
           </form>
         </div>                 
       </div>
-    </div>
+    </>
         
   )
 }

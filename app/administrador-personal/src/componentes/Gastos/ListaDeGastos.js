@@ -3,10 +3,15 @@ import Formulario from './Formulario'
 import Gasto from './Gasto'
 import Search from '../Search'
 import '../../stylesheets/Gastos/ListaDeGastos.css'
+import { useSearchParams } from 'react-router-dom'
 
 function ListaDeGastos() {
 
   const [gastos, setGastos] = useState([]); 
+  const [change, setChange] = useState(0); 
+  const [ params, setParams ] = useSearchParams(); 
+  const [flagNext, setFlagN] = useState(false); 
+  const [flagPrev, setFlagP] = useState(false); 
 
   const agregarGastos = gasto => { 
 
@@ -27,47 +32,77 @@ function ListaDeGastos() {
     setGastos(gastosActualizados); 
   }; 
 
+  const getGastos = async () => {
+    setParams({
+      change: change
+    });
+    const response = await fetch(`http://localhost:9000/gastos?change=${change}`); 
+    const gastosBase = await response.json();
+    console.log(gastosBase)
+    setGastos(gastosBase); 
+    
+  }
+
+  const getNext = () => {
+    if (flagPrev) { 
+      setChange(change); 
+      setFlagP(flagPrev = false); 
+    }
+    setChange(change + 4); 
+    getGastos(); 
+    setFlagN(flagNext = true); 
+    
+  }
+
+  const getPrev = () => {
+    if (flagNext) { 
+      setChange(change); 
+      setFlagN(false); 
+    }
+    if (change !== 0) {
+        setChange(change - 4)
+       
+    }
+    getGastos();
+    setFlagP(true)
+
+    
+  }
+
+ 
   return (
     <div className='container'>
         <div className='row'>
-            <div className='formulario col-md-4 col-sm-12'>
+            {/* <div className='formulario col-md-4 col-sm-12'>
                 <Formulario onSubmit={agregarGastos}/>
-            </div>
-            <div className='tabla col-md-8 col-sm-12'>
-                <Search />
-                <div className='row justify-content-center'>
-                    <div className='col-md-2 columna'>
-                        <p><b>Descripción</b></p>
+            </div> */}
+            <div className='tabla col-md-12 col-sm-12'>
+                <div className='row justify-content-end'>
+                    <div className='col-md-2 my-3'>
+                            <button onClick={getGastos} className='btn btn-light'>Refrescar</button>
+                            <button onClick={getPrev} className='btn btn-light buttons-guided'>Anterior</button>
+                            <button onClick={getNext} className='btn btn-light buttons-guided'>Siguiente</button>
                     </div>
-                    <div className='col-md-2 columna'>
-                        <p><b>Monto</b></p>
-                    </div>
-                    <div className='col-md-2 columna'>
-                        <p><b>Fecha</b></p>
-                    </div>
-                    <div className='col-md-2 columna'>
-                        <p><b>Tipo</b></p>
-                    </div>
-                    <div className='col-md-2 columna'>
-                        <p><b>Frecuencia</b></p>
-                    </div>
-                    <div className='col-md-2 columna'>
-                        <p><b>Opciones</b></p>
-                    </div>
+                    <Search />
                 </div>
-                <div className='row justify-content-center'>
-                    { 
-                        gastos.map((gasto) => 
-                            <Gasto 
-                                
-                                desc={gasto.desc}
-                                monto={gasto.monto}
-                                fecha={gasto.fecha}
-                                tipo={gasto.tipo}
-                                frec={gasto.frec}
-                                />)
-                
-                    } 
+                    
+                <div className='row'>
+                    <div className='col-md-12'>
+                        { 
+                            
+                            gastos.map((gasto) => 
+                                <Gasto 
+                                    
+                                    desc={gasto.gas_descripcion}
+                                    monto={gasto.gas_monto}
+                                    fecha={gasto.gas_fecha}
+                                    tipo={gasto.gas_tipo}
+                                    frec={gasto.gas_fecuencia}
+                                    />)
+                    
+                        }
+                    </div>
+                     
                 </div>
                 
             </div>

@@ -13,6 +13,7 @@ import Home from './componentes/Home/Home.js';
 import Gastos from './componentes/Gastos/Gastos.js';
 import Finanzas from './componentes/Finanzas/Finanzas.js';
 import Gantt from './componentes/Gantt/Gantt.js';
+import Formulario from './componentes/Gastos/Formulario';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} exact></Route>
           <Route path='/gastos' element={<Gastos/>}></Route>
+          <Route path='/gastos/:change' element={<Gastos/>}></Route>
+          <Route path='/gastos/formulario' element={<Formulario/>}></Route>
           <Route path='/finanzas' element={<Finanzas/>}></Route>
           <Route path='/gantt' element={<Gantt/>}></Route>
         </Routes>

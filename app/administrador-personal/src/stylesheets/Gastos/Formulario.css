@@ -10,8 +10,19 @@ form {
 .label-normal, button, .input-normal {
     width: 100%;
     display: block;
-    margin-top: 10px;
+    margin-top: 12px;
 }
+
+.input-normal {
+    border: none; 
+    border-bottom: 2px solid #212529;
+}
+
+.input-normal:focus {
+    background: linear-gradient(to bottom, transparent, #f5f5f5);
+    outline: none; 
+}
+
 
 .button-submit { 
     margin-top: 25px;
@@ -42,4 +53,12 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.page-container { 
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    background-color: #fff;
+    
 }
