@@ -5,12 +5,12 @@ const getGastos = async (req, res) => {
     const offset = req.query.change 
     console.log(offset); 
     const client = new Client({
-        user: "postgres", 
-        host: "containers-us-west-177.railway.app", 
-        database: "railway", 
-        password: "UjYbysNPXPAD7M5CV8VP", 
-        port: 6905,
-    }); 
+        user: "//PGUSER", 
+        host: "//PGHOST", 
+        database: "//DATABASE_URL", 
+        password: "//PGPASSWORD", 
+        port: "//PGPORT",
+    });
     
     client.connect(); 
     const response = await client.query(`select * from gastos order by gas_fecinsercion desc limit 4 offset ${offset}`); 
@@ -22,12 +22,12 @@ const setGastos = async (req, res) => {
     const { desc, monto, fecha, tipo, frec } = req.body; 
 
     const client = new Client({
-        user: "postgres", 
-        host: "containers-us-west-177.railway.app", 
-        database: "railway", 
-        password: "UjYbysNPXPAD7M5CV8VP", 
-        port: 6905,
-    }); 
+        user: "//PGUSER", 
+        host: "//PGHOST", 
+        database: "//DATABASE_URL", 
+        password: "//PGPASSWORD", 
+        port: "//PGPORT",
+    });
 
     const insert = "INSERT INTO gastos (gas_descripcion, gas_monto, gas_fecha, gas_tipo, gas_fecuencia, gas_fecinsercion) VALUES ($1, $2 ,$3, $4, $5, current_timestamp)"
 
@@ -38,24 +38,6 @@ const setGastos = async (req, res) => {
     res.send('gasto insertado')
     
 }
-
-// const getNextOrPrev = async (req, res) => { 
-
-//     let change = req.param.change;
-
-//     const client = new Client({
-//         user: "postgres", 
-//         host: "containers-us-west-137.railway.app", 
-//         database: "railway", 
-//         password: "T5GtOFuhWiHYkcTVZqJX", 
-//         port: 7108,
-//     }); 
-
-//     client.connect(); 
-//     const response = await client.query(`select * from gastos order by gas_fecinsercion desc limit 4 offset ${change}`); 
-//     client.end(); 
-//     res.status(200).json(response.rows);  
-// }
 
 module.exports = { 
     getGastos, 
