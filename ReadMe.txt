@@ -20,7 +20,7 @@ Por lo cuál, se hace lo siguiente:
 
 1. Abrir la página https://railway.app/new . Esto lo que nos permite es levantar una base de datos de forma temporal. 
 2. Seleccionar la opción que dice: Provision PostgreSQL
-3. Esperar a que diga: created y la fecha. Apareceran las opciones del lado derecho. 
+3. Esperar a que diga: created y la fecha. 
 4. Tocar el cuadrado principal que dice Postgres con el created abajo. 
 5. Ir a la solapa CONNECT y scrollear hacia abajo hasta la seccíon Available Variables. 
 6. Copiar cada una de las variables, situándose en cada una aparecera la opción copy value. Estas variables son: 
