@@ -12,7 +12,7 @@ y que al mismo tiempo me notifique.
 En Gantt, se muestra una grilla en donde se disponen tareas  y se muestran los tiempos que llevan cada una de esas
 tareas para una mejora de la productividad. 
 
-La parte desarrollada hasta el momento es la de Gastos. El formulario ya se encuentra disponible para insertar datos. 
+La parte desarrollada y parcialmente hasta el momento es la de Gastos. El formulario ya se encuentra disponible para insertar datos. 
 Para hacer una prueba se puede clonar el repositorio. Para probar la ruta /gastos de la API 
 primero hay que levantar una base de datos de PostgreSQL de manera temporal, ya que para levantarla permanentemente 
 se necesita una versión paga en algunas plataformas. Al estar en modo desarrollo, no consideré todavía gastar ese dinero. 
