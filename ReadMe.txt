@@ -41,7 +41,7 @@ mismas opciones en donde accedimos anteriormente, vamos a crear una tabla Gastos
 
 pegamos lo siguiente el el input que ofrece la oción: 
 create table gastos (
-	gas_id integer,
+	gas_id serial primary key,
 	gas_descripcion varchar, 
 	gas_monto float4, 
 	gas_fecha date, 
